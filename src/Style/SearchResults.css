@@ -1,0 +1,129 @@
+/* Container for the entire search results */
+.movie-results-container {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #141414; /* Dark background similar to Netflix */
+  min-height: 100vh;
+  animation: fadeIn 1s ease-out; /* Title fade-in animation */
+}
+
+/* Title of the search results */
+.movie-results-container h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #e50914; /* Netflix Red */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1.2s ease-out; /* Title fade-in animation */
+}
+
+/* The container that holds all movie cards */
+.movie-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  padding: 30px 0;
+}
+
+/* Styling for individual movie cards */
+.movie-card {
+  position: relative;
+  background-color: #333;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 260px;
+  height: 400px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  transform: scale(1);
+  animation: slideUp 0.8s ease-out; /* Slide-up effect for movie cards */
+}
+
+/* Hover effect for movie cards */
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Styling for movie images */
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #141414, #333); /* Placeholder shimmer */
+  animation: shimmer 1.5s infinite;
+}
+
+/* Fade effect on hover */
+.movie-card:hover img {
+  opacity: 0.8;
+}
+
+/* Stop shimmer when the image loads */
+.movie-card img:loaded {
+  animation: none;
+  background: none;
+}
+
+/* Movie title styling */
+.movie-card h3 {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  width: calc(100% - 30px);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Category headings */
+.movie-category {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #e50914;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Section divider */
+.movie-category:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 600px) {
+  .movie-results {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+  }
+
+  .movie-card {
+      height: 300px;
+  }
+
+  .movie-card h3 {
+      font-size: 1rem;
+  }
+}
+
